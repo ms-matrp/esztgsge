@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width" />
   <link rel="stylesheet" href="styles.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <title>ipamus</title>  <link rel="stylesheet" href="style.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,7 +49,23 @@
 
 </center>
 <script>
+<script>
+window.addEventListener('load', () => {
+    const tg = window.Telegram?.WebApp;
 
+    if (!tg) {
+        console.log('Открыто не в Telegram');
+        return;
+    }
+
+    tg.ready();
+    tg.expand();
+
+    if (typeof tg.requestFullscreen === 'function') {
+        tg.requestFullscreen();
+    }
+});
+</script>
 </script>
 
 </body>
